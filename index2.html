@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sim ou Não</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            padding: 20px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        h1, h5 {
+            margin: 10px 0;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 15px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            h5 {
+                font-size: 16px;
+            }
+
+            button {
+                font-size: 16px;
+                padding: 8px 12px;
+                margin: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ana Clara, Você aceita se casar comigo?</h1>
+        <h5>prometo te fazer muito feliz</h5>
+        <button id="yesButton">Sim</button>
+        <button id="noButton">Não</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const yesButton = document.getElementById('yesButton');
+            const noButton = document.getElementById('noButton');
+
+            yesButton.addEventListener('click', function() {
+                window.location.href = 'https://sites.google.com/view/anaclarateamo/in%C3%ADcio/ana2?authuser=0';
+            });
+
+            noButton.addEventListener('click', function() {
+                moveButton(noButton);
+            });
+
+            function moveButton(button) {
+                const container = document.querySelector('.container');
+                const containerRect = container.getBoundingClientRect();
+                const buttonRect = button.getBoundingClientRect();
+
+                const newX = Math.random() * (containerRect.width - buttonRect.width);
+                const newY = Math.random() * (containerRect.height - buttonRect.height);
+
+                button.style.position = 'absolute';
+                button.style.left = `${newX}px`;
+                button.style.top = `${newY}px`;
+            }
+        });
+    </script>
+</body>
+</html>
